@@ -24,5 +24,7 @@ for line in iter(proc.stdout.readline,''):
     elif cmd[3] == "Control":
         if cmd[9] == '127':
             print("Pedal Down")
+            ser.write(bytes([0xFF]))
         else:
             print("Pedal Up")
+            ser.write(bytes([0xFE]))
